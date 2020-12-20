@@ -1,0 +1,26 @@
+[
+  {
+    "model": "iPhone 10",
+    "number": "0733332211",
+    "color": "Green",
+    "callsDuration": 20
+  },
+  {
+    "model": "Xiaomi Redmi 5",
+    "number": "0987767821",
+    "color": "Red",
+    "callsDuration": 48
+  },
+  {
+    "model": "Huawei Honor 10 Lite",
+    "number": "0674489011",
+    "color": "Black",
+    "callsDuration": 24
+  },
+  {
+    "model": "IBM",
+    "number": "11-29-01",
+    "color": "Red",
+    "callsDuration": 50
+  }
+]
