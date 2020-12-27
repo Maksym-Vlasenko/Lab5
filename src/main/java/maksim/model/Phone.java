@@ -1,14 +1,20 @@
 package maksim.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = MobilePhone.class, name = "MobilePhone"),
-        @JsonSubTypes.Type(value = LandlinePhone.class, name = "LandlinePhone")
+        @JsonSubTypes.Type(value = MobilePhone.class, name = "mobilePhone"),
+        @JsonSubTypes.Type(value = LandlinePhone.class, name = "landlinePhone")
 })
 public abstract class Phone {
     private final StringProperty model;
@@ -73,3 +79,17 @@ public abstract class Phone {
 
     public abstract void call();
 }
+
+
+
+/*
+Phone[] phones = new Phone[] {
+        new MobilePhone("iPhone 10", "0733332211", "green", 20),
+        new MobilePhone("Xiaomi Redmi 5", "0985544666", "red", 48),
+        new MobilePhone("Huawei Honor 10 Lite", "0960099888", "black", 25),
+        new LandlinePhone("IBM", "11-29-01", "red", 44),
+};
+
+savePhonesAsJson("phones.json", phones);
+
+* */

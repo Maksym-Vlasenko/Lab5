@@ -1,26 +1,30 @@
 [
   {
+    "type": "mobilePhone",
     "model": "iPhone 10",
     "number": "0733332211",
-    "color": "Green",
+    "color": "green",
     "callsDuration": 20
   },
   {
+    "type": "mobilePhone",
     "model": "Xiaomi Redmi 5",
-    "number": "0987767821",
-    "color": "Red",
+    "number": "0985544666",
+    "color": "red",
     "callsDuration": 48
   },
   {
+    "type": "mobilePhone",
     "model": "Huawei Honor 10 Lite",
-    "number": "0674489011",
-    "color": "Black",
-    "callsDuration": 24
+    "number": "0960099888",
+    "color": "black",
+    "callsDuration": 25
   },
   {
+    "type": "landlinePhone",
     "model": "IBM",
     "number": "11-29-01",
-    "color": "Red",
-    "callsDuration": 50
+    "color": "red",
+    "callsDuration": 44
   }
 ]
