@@ -3,45 +3,60 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maksim.controller.RootController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem fx:id="showAbout" mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <center>
-      <TableView fx:id="phonesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="modelColumn" prefWidth="202.0" text="Model" />
-          <TableColumn fx:id="numberColumn" prefWidth="232.0" text="Number" />
-            <TableColumn fx:id="colorColumn" minWidth="0.0" prefWidth="162.0" text="Color" />
-            <TableColumn fx:id="callsDurationColumn" prefWidth="203.0" text="Calls duration (min)" />
-        </columns>
-      </TableView>
-   </center>
-   <bottom>
-      <HBox alignment="CENTER" spacing="20.0">
-         <children>
-          <Button fx:id="addPhone" alignment="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Add" />
-            <Button fx:id="editPhone" alignment="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Edit" />
-            <Button fx:id="deletePhone" alignment="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Delete" />
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
-   </bottom>
-</BorderPane>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maksim.controller.RootController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="3.0" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#createFile" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TableView fx:id="phonesTable" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="modelColumn" prefWidth="258.0" text="Model" />
+                <TableColumn fx:id="numberColumn" prefWidth="232.0" text="Number" />
+                  <TableColumn fx:id="colorColumn" minWidth="0.0" prefWidth="146.0" text="Color" />
+                  <TableColumn fx:id="typeColumn" prefWidth="150.0" text="Type" />
+                  <TableColumn fx:id="callsDurationColumn" prefWidth="212.0" text="Calls duration (min)" />
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                <Button fx:id="addPhoneButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#addPhone" prefWidth="200.0" text="Add" />
+                  <Button fx:id="deletePhoneButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#deletePhone" prefWidth="200.0" text="Delete" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </bottom>
+      </BorderPane>
+      <Label fx:id="filenameLabel" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </Label>
+      <Separator prefWidth="200.0" GridPane.rowIndex="1" />
+   </children>
+</GridPane>

@@ -8,10 +8,22 @@ public final class AlertUtils {
     }
 
     public static void showError(String header, String errorMessage) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        Alert alert = createBasic(Alert.AlertType.ERROR, "Error");
         alert.setHeaderText(header);
         alert.setContentText(errorMessage);
         alert.showAndWait();
+    }
+
+    public static void showInformation(String header, String errorMessage) {
+        Alert alert = createBasic(Alert.AlertType.INFORMATION, "Info");
+        alert.setHeaderText(header);
+        alert.setContentText(errorMessage);
+        alert.showAndWait();
+    }
+
+    private static Alert createBasic(Alert.AlertType type, String title) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        return alert;
     }
 }

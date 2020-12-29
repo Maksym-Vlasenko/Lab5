@@ -9,8 +9,7 @@ import javafx.beans.property.StringProperty;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "type"
+        property = "exact_type"
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = MobilePhone.class, name = "mobilePhone"),
@@ -20,13 +19,27 @@ public abstract class Phone {
     private final StringProperty model;
     private final StringProperty number;
     private final StringProperty color;
+    private final StringProperty type;
     private final IntegerProperty callsDuration;
 
-    public Phone(String model, String number, String color, int callsDuration) {
+    public Phone(String model, String number, String color, String type, int callsDuration) {
         this.model = new SimpleStringProperty(model);
         this.number = new SimpleStringProperty(number);
         this.color = new SimpleStringProperty(color);
+        this.type = new SimpleStringProperty(type);
         this.callsDuration = new SimpleIntegerProperty(callsDuration);
+    }
+
+    public String getType() {
+        return type.get();
+    }
+
+    public StringProperty typeProperty() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type.set(type);
     }
 
     public String getModel() {
@@ -79,17 +92,3 @@ public abstract class Phone {
 
     public abstract void call();
 }
-
-
-
-/*
-Phone[] phones = new Phone[] {
-        new MobilePhone("iPhone 10", "0733332211", "green", 20),
-        new MobilePhone("Xiaomi Redmi 5", "0985544666", "red", 48),
-        new MobilePhone("Huawei Honor 10 Lite", "0960099888", "black", 25),
-        new LandlinePhone("IBM", "11-29-01", "red", 44),
-};
-
-savePhonesAsJson("phones.json", phones);
-
-* */
